@@ -1,5 +1,6 @@
 
 import { buttonGroup, loadStyle } from './button-group.js'
+// 加载组件样式
 loadStyle()
 
 /**
