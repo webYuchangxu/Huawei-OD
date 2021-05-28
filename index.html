@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>buttonGroup</title>
+    <style>
+      .checkButton{
+        border: 1px solid black;
+      }
+      .checkButton:hover{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button-group data-name="name1">
+      <button-group-item>12</button-group-item>
+      <button-group-item>45</button-group-item>
+      <button-group-item>89</button-group-item>
+      <button-group-item>36</button-group-item>
+    </button-group>
+    <span id="check" class="checkButton">查看A组当前激活项</span>
+    <button-group data-name="name2">
+      <button-group-item></button-group-item>
+      <button-group-item></button-group-item>
+      <button-group-item></button-group-item>
+      <button-group-item></button-group-item>
+    </button-group>
+    <script type="module">
+      import buttonGroup from "./button-group/index.js";
+
+      const group1 = new buttonGroup({
+        name: "name1",
+        size: "small",
+        isMultiple: true,
+        handleClick: (e) => {
+          console.log(e.target.innerHTML);
+        },
+      });
+
+      new buttonGroup({
+        name: "name2",
+        size: "large",
+        isMultiple: false,
+        title: ["按钮1", "按钮2", "33", "44"],
+      });
+
+      document.getElementById("check").addEventListener("click", () => {
+        const activeItem = group1.getActiveItem();
+        console.log(activeItem);
+      });
+    </script>
+  </body>
+</html>
