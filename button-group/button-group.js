@@ -21,7 +21,8 @@ export class buttonGroup {
         }
         if (!group) return {}
         this.config = config;
-        const flag = Math.random().toFixed(10).toString().split('.')[1]
+        const NUM_10 = 10;
+        const flag = Math.random().toFixed(NUM_10).toString().split('.')[1]
         const itemClass = `button-group-item-${flag}`
         const groupClass = `button-group-${flag}`
         const itemList = group.querySelectorAll('button-group-item')
